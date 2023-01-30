@@ -10,6 +10,11 @@ Table of Contents
 
 ## About
 
+I am Ark, I am a passionate data engineer, loving dad.
+
+You can contact me at
+- arkliu [at] outlook.com
+
 ## Blogs
 
 ## Readings
