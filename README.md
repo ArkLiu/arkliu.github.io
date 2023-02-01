@@ -2,10 +2,10 @@
 
 > The light at the end of the tunnel is just the light of an oncoming train
 
-source: Robert Lowell
+source: [Robert Lowell](https://en.wikipedia.org/wiki/Robert_Lowell)
 ## About
 
-I am a data engineer at [GoodRx](https://www.goodrx.com/). Before GoodRx, I am having a fun time to worked at [Truework](https://www.truework.com/) and [SimpleLegal](https://www.simplelegal.com/)
+I am a data engineer at [GoodRx](https://www.goodrx.com/). Before GoodRx, I am having a fun time to work at [Truework](https://www.truework.com/) and [SimpleLegal](https://www.simplelegal.com/)
 
 I can be found on [LinkedIn](https://www.linkedin.com/in/ark-liu/)
 
