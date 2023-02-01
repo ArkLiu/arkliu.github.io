@@ -1,4 +1,4 @@
-# Hi, I am Ark :wave:
+# Hi, I am Ark
 
 > The light at the end of the tunnel is just the light of an oncoming train
 
@@ -18,7 +18,7 @@ Or You can contact me at arkliu [at] outlook.com
 Last updated on Jan 31, 2023
 
 - Build Github Page with Markdown only
-- Find a daycare so I can get Dependent Care FSA money back :money_with_wings:
+- Find a daycare so I can get Dependent Care FSA money back
 - Rebuild the peloton habit
 - Wear the acting team manager hat
 - Wrap up the airflow 2 upgrade
