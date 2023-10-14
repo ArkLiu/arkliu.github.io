@@ -1,8 +1,8 @@
 # Hi, I am Ark
 
-> The light at the end of the tunnel is just the light of an oncoming train
+> Do or do not. There is no try
 
-source: Robert Lowell
+source: Yoda
 
 ## About
 
