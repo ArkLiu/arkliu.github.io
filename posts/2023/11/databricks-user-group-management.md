@@ -1,6 +1,5 @@
 ---
 title: Streamline User and Group Management with Databricks Notebook
-description: Streamline User and Group Management with Databricks Notebook
 date: 2023-11-27
 tags:
   - databricks
@@ -111,8 +110,6 @@ import json
 
 import requests
 import yaml
-from requests.adapters import HTTPAdapter
-from urllib3.util import Retry
 ```
 
 #### get the token from somewhere safe
@@ -211,6 +208,9 @@ As I mentioned before, it is highly recommended to store the YAML file in a
 repository. This will make the workflow more transparent and easier to share
 the provisioning responsibility with other teams as the end user does not need
 Databricks access to update the YAML file.
+
+After the YAML file is read, we need to convert the email to user id so we can
+communicate with Databricks API.
 
 ```python
 res = session.get(
@@ -313,8 +313,10 @@ project, we can provision the new group to the end user who need it because we
 also wire this job run to the CI/CD pipeline to fully automate the process.
 
 As you can see, this solution is built on top of the Databricks API and python
-basic operation to make it very flexible and scalable.
+basic operation to make it very flexible and scalable. You can easily modify
+the logic to fit your need.
 
-If you have any questions or suggestions, please feel free to reach out to me
+I hope you find this article helpful. If you have any questions or suggestions,
+ please feel free to reach out to me
 
 [Authentication for Databricks automation - overview]: https://docs.databricks.com/dev-tools/api/latest/authentication.html#authentication-for-databricks-automation-overview
