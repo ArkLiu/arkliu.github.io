@@ -29,7 +29,7 @@ Last updated on Oct 13, 2023
 
 ## Blogs
 
-coming soon
+- 2023-11-27 Streamline User and Group Management with Databricks Notebook
 
 [GoodRx]: https://www.goodrx.com
 [Truework]: https://www.truework.com
