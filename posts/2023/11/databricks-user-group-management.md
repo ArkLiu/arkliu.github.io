@@ -45,8 +45,8 @@ from Terraform got overwritten. In addition, our team does not have the
 visibility on the identity provider configuration which make it hard to debug
 when something goes wrong.
 
-I think SCIM provisioning can be a good solution when everything is stable and a
- dedicated team is responsible for the identity management. But we are not
+I think SCIM provisioning can be a good solution when everything is stable and
+a dedicated team is responsible for the identity management. But we are not
  there yet so we need to find a better solution.
 
 ## The Solution
@@ -73,7 +73,9 @@ consider adopting this solution.
 
 ### YAML
 
-The YAML file contains the user and group information.
+The YAML file contains the user and group information. It can be any format you
+feel comfortable with. I only keep the necessary information in the YAML file
+because you can get the rest of the information from Databricks API.
 
 ```yaml
 team_1:
@@ -103,7 +105,7 @@ loop through group information to add/remove users
 
 #### Import the required libraries
 
-This part should be very self-explanatory.
+This code block is self-explanatory.
 
 ```python
 import json
@@ -114,9 +116,8 @@ import yaml
 
 #### get the token from somewhere safe
 
-I am using Databricks secret management to store the token. The reason is to
-reduce the dependency on other tools. However, you can use any secret
-management tool you like.
+I am using Databricks secret management to store the token to reduce the
+dependency on other tools.
 
 ```python
 git_token = dbutils.secrets.get(  # noqa: F821
@@ -312,11 +313,11 @@ administration work. Even with the new group been created to support the new
 project, we can provision the new group to the end user who need it because we
 also wire this job run to the CI/CD pipeline to fully automate the process.
 
-As you can see, this solution is built on top of the Databricks API and python
+As you can see, this solution is built on top of Databricks API and python
 basic operation to make it very flexible and scalable. You can easily modify
 the logic to fit your need.
 
-I hope you find this article helpful. If you have any questions or suggestions,
+I hope you find this post helpful. If you have any questions or suggestions,
  please feel free to reach out to me
 
 [Authentication for Databricks automation - overview]: https://docs.databricks.com/dev-tools/api/latest/authentication.html#authentication-for-databricks-automation-overview

@@ -20,19 +20,20 @@ Or You can contact me at arkliu [at] outlook.com
 
 [What is this?][]
 
-Last updated on Oct 13, 2023
+Last updated on Nov 27, 2023
 
 - Build Github Page with Markdown only
 - Rebuild the peloton habit
-- Learn databricks from scratch
-- Build infrastructure with Terraform modules
+- Learn Databricks Asset Bundles (DAB)
+- Enjoy the holiday season
 
 ## Blogs
 
-- 2023-11-27 Streamline User and Group Management with Databricks Notebook
+- 2023-11-27 [Streamline User and Group Management with Databricks Notebook][]
 
 [GoodRx]: https://www.goodrx.com
-[Truework]: https://www.truework.com
-[SimpleLegal]: https://www.simplelegal.com
 [LinkedIn]: https://www.linkedin.com/in/ark-liu
+[SimpleLegal]: https://www.simplelegal.com
+[Truework]: https://www.truework.com
+[Streamline User and Group Management with Databricks Notebook]: https://arkliu.com/posts/2023/11/databricks-user-group-management
 [What is this?]: https://nownownow.com/about
