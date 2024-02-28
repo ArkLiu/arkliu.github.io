@@ -30,10 +30,13 @@ Last updated on Nov 27, 2023
 ## Blogs
 
 - 2023-11-27 [Streamline User and Group Management with Databricks Notebook][]
+- 2024-02-27 [Databricks Connect to Amazon Kinesis][]
 
 [GoodRx]: https://www.goodrx.com
 [LinkedIn]: https://www.linkedin.com/in/ark-liu
 [SimpleLegal]: https://www.simplelegal.com
 [Truework]: https://www.truework.com
-[Streamline User and Group Management with Databricks Notebook]: https://arkliu.com/posts/2023/11/databricks-user-group-management
 [What is this?]: https://nownownow.com/about
+
+[Streamline User and Group Management with Databricks Notebook]: https://arkliu.com/posts/2023/11/databricks-user-group-management
+[Databricks Connect to Amazon Kinesis]: https://arkliu.com/posts/2024/02/databricks-connect-to-amazon-kinesis

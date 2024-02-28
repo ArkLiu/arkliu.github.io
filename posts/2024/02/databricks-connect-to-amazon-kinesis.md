@@ -31,16 +31,15 @@ things.
 
 - `sts:AssumeRole`
 - `sts:AssumeRole`
-- `Databricks deployment account IAM role`
+- `Databricks deployment role`
 
 ### Step 1: Set up cross-account role in Kinesis account
 
 Create a new IAM role in the Kinesis account and allow `AssumeRole` from the
 Databricks deployment account.
 
-For `inline_policy`, you can either follow the document or use the
-`AmazonKinesis*Access` from [AWS Managed Policy][] or create your own policy
-like the example below.
+For `inline_policy`, you can either follow the document or use any
+`AmazonKinesis*Access` from [AWS Managed Policy][] or create your own policy.
 
 ```hcl
 resource "aws_iam_role" "kinesis_cross_account_service_role" {
@@ -93,7 +92,7 @@ This is the IAM role that Databricks deployment role will use to assume the
 role in the Kinesis account.
 
 The policy is very simple and clean. It only allows `sts:AssumeRole` to the
-role created in the previous step.
+role created in the `Step 1`.
 
 ```hcl
 resource "aws_iam_role" "kinesis_service_role" {
