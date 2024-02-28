@@ -11,13 +11,23 @@ tags:
 
 ## Intro
 
-If you are trying to connect Databricks to Amazon Kinesis via [Connect to Amazon Kinesis][] guide, you might find it very confusing as it suggests you to use [instance profile][] but the document does not provide any information on how to set it up. After a few hours of googleing, you might find the [Cross-account Kinesis access with an AssumeRole policy][] document but it is not very helpful either because it is expecting you to have the permission to create a new role in the AWS account which most likely you do not have it.
+If you are trying to connect Databricks to Amazon Kinesis via
+[Connect to Amazon Kinesis][] guide, you might find it very confusing as it
+ suggests you to use [instance profile][] but the document does not provide any
+ information on how to set it up. After a few hours of googleing, you might
+ find the [Cross-account Kinesis access with an AssumeRole policy][] document
+ but it is not very helpful either because it is expecting you to have the
+ permission to create a new role in the AWS account which most likely you do
+ not have it.
 
-In this post, I will share with you the Terraform code to set up the instance profile based on the [Cross-account Kinesis access with an AssumeRole policy][] document.
+In this post, I will share with you the Terraform code to set up the instance
+profile based on the [Cross-account Kinesis access with an AssumeRole policy][]
+document.
 
 ## Preread
 
-Before we start, I assume you have the basic understanding of the following things.
+Before we start, I assume you have the basic understanding of the following
+things.
 
 - `sts:AssumeRole`
 - `sts:AssumeRole`
@@ -25,9 +35,12 @@ Before we start, I assume you have the basic understanding of the following thin
 
 ### Step 1: Set up cross-account role in Kinesis account
 
-Create a new IAM role in the Kinesis account and allow `AssumeRole` from the Databricks deployment account.
+Create a new IAM role in the Kinesis account and allow `AssumeRole` from the
+Databricks deployment account.
 
-For `inline_policy`, you can either follow the document or use the `AmazonKinesis*Access` from [AWS Managed Policy][] or create your own policy like the example below.
+For `inline_policy`, you can either follow the document or use the
+`AmazonKinesis*Access` from [AWS Managed Policy][] or create your own policy
+like the example below.
 
 ```hcl
 resource "aws_iam_role" "kinesis_cross_account_service_role" {
@@ -74,11 +87,13 @@ resource "aws_iam_role" "kinesis_cross_account_service_role" {
 
 There are 2 tasks in this step.
 
-#### 2.1 A new IAM role in the Databricks deployment account to assume the role in the Kinesis account
+#### 2.1 IAM role to allow Databricks deployment role to assume
 
-This is the role that Databricks deploymeny account will use to assume the role in the Kinesis account.
+This is the IAM role that Databricks deployment role will use to assume the
+role in the Kinesis account.
 
-The policy is very simple and clean. It only allows `sts:AssumeRole` to the role created in the previous step.
+The policy is very simple and clean. It only allows `sts:AssumeRole` to the
+role created in the previous step.
 
 ```hcl
 resource "aws_iam_role" "kinesis_service_role" {
@@ -120,7 +135,9 @@ resource "aws_iam_role" "kinesis_service_role" {
 
 #### 2.2 Update Databricks deployment role to allow PassRole
 
-Instead of adding `ec2 actions` and `PassRole` to its existing policy, I prefer to create a new policy and attach it to the role. This is because it is easier to manage and understand.
+Instead of adding `ec2 actions` and `PassRole` to its existing policy, I prefer
+to create a new policy and attach it to the role. This is because it is easier
+to manage and understand.
 
 ```hcl
 data "aws_iam_policy_document" "kinesis_pass_role" {
@@ -154,7 +171,8 @@ resource "aws_iam_role_policy_attachment" "kinesis_pass_role" {
 
 ### Step 3: Add the instance profile DatabricksToKinesisAssumeRole to Databricks
 
-Create a instance profile in AWS and databricks version based on the role created in the previous step.
+Create a instance profile in AWS and databricks version based on the role
+created in the previous step.
 
 ```hcl
 resource "aws_iam_instance_profile" "kinesis_instance_profile" {
@@ -170,7 +188,8 @@ resource "databricks_instance_profile" "kinesis_instance_profile" {
 
 ### Step 4: Create a cluster with the instance profile
 
-Following this [databricks_cluster resource][] doc to add `instance_profile_arn` to the cluster configuration based no
+Following this [databricks_cluster resource][] doc to add
+`instance_profile_arn` to the cluster configuration based no
 
 ### Step 5: Validate connection to Kinesis
 
@@ -179,17 +198,22 @@ profit!
 ## Limitation on the Instance Profile
 
 Afaik, the instance profile in Databricks has been used for the use case below.
-- connect to Amazon Kinesis which is the main purpose of this post
-- [Configure S3 access with an instance profile][] for the init scripts stored in S3
 
-If you plan to use the instance profile for both use cases, you will have to alter the `step 2` to include the S3 access as well. I will leave it to you to figure it out since I have not tried it myself yet.
+- connect to Amazon Kinesis which is the main purpose of this post
+- [Configure S3 access with an instance profile][] for the init scripts in S3
+
+If you plan to use the instance profile for both use cases, you will have to
+alter the `step 2` to include the S3 access as well. I will leave it to you to
+figure it out since I have not tried it myself yet.
 
 ## Conclusion
 
-I hope this post helps you to set up the instance profile for Databricks to connect to Amazon Kinesis. If you have any questions or suggestions, feel free to email me.
+I hope this post helps you to set up the instance profile for Databricks to
+connect to Amazon Kinesis. If you have any questions or suggestions, feel free
+to email me.
 
 [AWS Managed Policy]: https://docs.aws.amazon.com/aws-managed-policy/latest/reference
-[Cofnigure S3 access with an instance profile]: https://docs.databricks.com/en/connect/storage/tutorial-s3-instance-profile.html
+[Configure S3 access with an instance profile]: https://docs.databricks.com/en/connect/storage/tutorial-s3-instance-profile.html
 [Connect to Amazon Kinesis]: https://docs.databricks.com/en/connect/streaming/kinesis.html
 [Cross-account Kinesis access with an AssumeRole policy]: https://docs.databricks.com/en/archive/admin-guide/iam-kinesis.html
 [databricks_cluster resource]: https://registry.terraform.io/providers/databrickslabs/databricks/latest/docs/resources/cluster
