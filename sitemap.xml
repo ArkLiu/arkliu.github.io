@@ -9,18 +9,33 @@
 
 <url>
   <loc>https://arkliu.com/</loc>
-  <lastmod>2024-02-29T06:00:59+00:00</lastmod>
+  <lastmod>2024-02-29T07:24:53+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://arkliu.com/posts/2023/11/databricks-user-group-management</loc>
-  <lastmod>2024-02-29T06:00:59+00:00</lastmod>
+  <loc>https://arkliu.com/about</loc>
+  <lastmod>2024-02-29T07:24:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://arkliu.com/now</loc>
+  <lastmod>2024-02-29T07:24:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://arkliu.com/writings</loc>
+  <lastmod>2024-02-29T07:24:53+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://arkliu.com/posts/2024/02/databricks-connect-to-amazon-kinesis</loc>
-  <lastmod>2024-02-29T06:00:59+00:00</lastmod>
-  <priority>0.80</priority>
+  <lastmod>2024-02-29T07:24:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://arkliu.com/posts/2023/11/databricks-user-group-management</loc>
+  <lastmod>2024-02-29T07:24:53+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 
 
