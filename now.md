@@ -2,6 +2,13 @@
 
 [What is this?][]
 
+## Mar 2024
+
+- Learn how Google Search Console works
+- more Databricks IAC work
+- Home revovation
+- Plan for the next trip
+
 ## Feb 2024
 
 - Healing from the sickness
